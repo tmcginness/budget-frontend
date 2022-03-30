@@ -16,7 +16,7 @@ const Profile = () => {
 
 
   const getTransactions = () => {
-    axios.get('https://glacial-journey-00163.herokuapp.com/api/transactions/' + user.email)
+    axios.get('https://glacial-journey-00163.herokuapp.com/api/owner/' + user.email)
       .then(
         (response) => setTransactions(response.data),
         (error) => console.error(error))
