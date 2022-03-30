@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-// import Edit from './components/EditForm'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-// import Card from 'react-bootstrap/Card';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Transactions from './pages/Transactions';
+import Profile from './pages/Profile';
 import NewTransaction from './pages/NewTransaction';
 import EditTransaction from './pages/EditTransaction';
+import Login from './components/Login';
+import Logout from './components/Logout';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const App = props => {
 
   const [transactions, setTransactions] = useState([])
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   // const getCharacters = () => {
   //   axios.get('http://localhost:8000/api/characters')
@@ -40,17 +43,15 @@ const App = props => {
   }
 
 
-  // useEffect(() => {
-  //   getCharacters()
-  // }, [])
-
   return (
     <>
       {/* <div className="container">
         <Add handleCreate={handleCreate} />
         <
       </div> */}
-
+      {!isAuthenticated === true ? <Login />:<Logout />}
+      
+      
       <BrowserRouter>
           <header className='header'>
           
@@ -59,6 +60,7 @@ const App = props => {
             <Routes>
 
               <Route exact path="/" element={<Transactions />} />
+              <Route path="/profile" element={<Profile />} />
               <Route exact path="/add-transaction" element={<NewTransaction handleCreate={handleCreate}/>} />
               <Route exact path="/edit-transaction/:id" element={<EditTransaction transaction={transactions} handleUpdate={handleUpdate}/>} />
               

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NewTransaction } from './NewTransaction.js';
@@ -51,7 +52,8 @@ const Transactions = props => {
     <h2>Transactions
           
         </h2>
-        <h5><Link to={'add-transaction'} className="btn"> Add Transaction</Link></h5>
+        <Link to={'add-transaction'} className="btn"><Button>Add Transaction</Button></Link>
+        <Link to={'profile'} className="btn"><Button>Profile</Button></Link>
         <div id="transaction">
         <Table striped bordered hover>
     <thead>
