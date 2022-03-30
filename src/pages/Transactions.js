@@ -47,6 +47,7 @@ const Transactions = props => {
     useEffect(() => {
     getTransactions()
   }, [])
+  
     return (
     <>
     <h2>Transactions
