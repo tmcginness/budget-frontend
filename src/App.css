@@ -88,3 +88,7 @@
 .navbar a, .navbar button, .navbar div{
   font-family: 'Lato', sans-serif;
 }
+
+.container-fluid{
+  justify-content: flex-start!important;
+}

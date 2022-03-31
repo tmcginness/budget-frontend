@@ -7,8 +7,7 @@ import Login from './Login';
 import Logout from './Logout';
 
 const LogoutButton = () => {
-  const { logout } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <>
@@ -22,6 +21,7 @@ const LogoutButton = () => {
         <Nav className="">
   <Nav.Link href="/profile">Profile</Nav.Link>
   <Nav.Link href="/add-transaction">Add Transaction</Nav.Link>
+  <Nav.Link href="/categories">Your Analytics</Nav.Link>
 </Nav> : <div>''</div>
       )}
 

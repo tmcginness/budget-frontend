@@ -6,20 +6,27 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import Edit from './EditTransaction';
+import SlideIn from '../components/SlideIn';
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [transactions, setTransactions] = useState([]);
-  const { email, setEmail } = useState();
+  const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState(false);
   const toggleChecked = () => setChecked(value => !value);
-
-
 
   const getTransactions = () => {
     axios.get('https://glacial-journey-00163.herokuapp.com/api/owner/' + user.email)
       .then(
         (response) => setTransactions(response.data),
+        (error) => console.error(error))
+      .catch()
+  }
+
+  const getCategories = () => {
+    axios.get('https://glacial-journey-00163.herokuapp.com/api/sum/' + user.email)
+      .then(
+        (response) => setCategories(response.data),
         (error) => console.error(error))
       .catch()
   }
@@ -40,26 +47,30 @@ const Profile = () => {
       })
   }
 
+  useEffect(() => {
+      if(isLoading===false){ {getTransactions();} {getCategories();} }
+}, [isLoading]);
+
+  
+
   if (isLoading) {
     return <div>Loading ...</div>;
   } 
 
-  setTimeout(() => getTransactions(), 500);
 
   return (
       <>
+            {categories.map((category) => {
+    return (
+      <>
+      <h1>{category.category}</h1>
+      <h2>{category.total_transactions}</h2>
+      </>
+    )
+  })}
       <Container>
-      {
-      (isAuthenticated ? 
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-      </div> : <h1>Sign In Please</h1>
-      )}
-          <h2>Transactions
-          
-          </h2>
+      <SlideIn/>
+          <h2 className="title">Transactions</h2>
           <Link className="m-2" to={'/add-transaction'}><Button>Add Transaction</Button></Link>
           <div id="transaction">
 
@@ -76,14 +87,14 @@ const Profile = () => {
         <th>Total</th>
         <th>Description</th>
         <th>Category</th>
-        <th colSpan={2}>Edit/Delete</th>
+        <th colSpan={2}>Delete</th>
       </tr>
     </thead>
     
-  {transactions.reverse().map((singleTransaction) => {
+  {transactions.map((singleTransaction) => {
     return (
-      <tbody>
-      <tr key={singleTransaction.id}>
+      <tbody key={singleTransaction.id}>
+      <tr>
         <td className="date">{singleTransaction.date}</td>
         <td>{singleTransaction.vendor}</td>
         <td>${singleTransaction.price}</td>
