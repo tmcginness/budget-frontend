@@ -52,7 +52,7 @@ const NewTransaction = props => {
                     <Form.Control required type='text' name='notes' onChange={handleChange} value={transactions.notes} />
                     <br />
                     <Form.Label htmlFor='owner'>Owner:</Form.Label>
-                    <Form.Control required type='text' name='owner' placeholder={user.email} onChange={handleChange} value={transactions.owner} />
+                    <Form.Control required placeholder={!isAuthenticated === true ? '': user.email} type='text' name='owner' onChange={handleChange} value={transactions.owner} />
                     <br />
                     
 

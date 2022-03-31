@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import Edit from './EditTransaction';
 
@@ -47,18 +48,26 @@ const Profile = () => {
 
   return (
       <>
-      
+      <Container>
+      {
+      (isAuthenticated ? 
       <div>
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-      </div> 
+      </div> : <h1>Sign In Please</h1>
+      )}
           <h2>Transactions
           
           </h2>
-          <Link to={'/add-transaction'} className="btn"><Button>Add Transaction</Button></Link>
-          <Link to={'/'} className="btn"><Button>Home</Button></Link>
+          <Link className="m-2" to={'/add-transaction'}><Button>Add Transaction</Button></Link>
           <div id="transaction">
+
+          { checked ? 
+            <Button className="m-2" onClick={toggleChecked}>Exit Edit Mode</Button>
+       : <Button className="m-2" onClick={toggleChecked}>Enter Edit Mode</Button>
+      }
+          
           <Table striped bordered hover>
       <thead>
       <tr>
@@ -80,8 +89,6 @@ const Profile = () => {
         <td>${singleTransaction.price}</td>
         <td>{singleTransaction.description}</td>
         <td>{singleTransaction.category}</td>
-        <td><button onClick={toggleChecked}>Edit</button></td>
-        {/* <Link to={`edit-transaction/${singleTransaction.id}`} className="btn"><button>Edit</button></Link> */}
         <td><button onClick={handleDelete} value={singleTransaction.id}>Delete</button></td>
       </tr>
       { checked ? 
@@ -96,7 +103,7 @@ const Profile = () => {
   </Table>
   </div>
     
-    
+  </Container>
 </>
   );
 };
