@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BarChartLine, JournalBookmarkFill, PlusSlashMinus } from 'react-bootstrap-icons';
 import ReactTypingEffect from 'react-typing-effect';
-import Logo from '/Users/ted1/Desktop/budget-frontend/src/images/Budgetedfull.png'
+import Logo from '../images/Budgetedfull.png'
 
 
 
