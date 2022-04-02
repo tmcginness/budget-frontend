@@ -1,39 +1,31 @@
 import { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
-import {Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
-import Edit from './EditTransaction';
 import SlideIn from '../components/SlideIn';
+import Chart from '../components/ReChart';
+import Pie from '../components/PieChart';
+import Bar from '../components/BarGraph';
+import Line from '../components/LineGraph';
+
 
 const Categories = () => {
-  const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
-  const [transactions, setTransactions] = useState([]);
+  const { user, isLoading } = useAuth0();
   const [categories, setCategories] = useState([]);
-  const [checked, setChecked] = useState(false);
-  const toggleChecked = () => setChecked(value => !value);
 
-
-
-  const getTransactions = () => {
-    axios.get('https://glacial-journey-00163.herokuapp.com/api/owner/' + user.email)
+const getCategories = () => {
+    axios.get('https://glacial-journey-00163.herokuapp.com/api/sum/' + user.email)
       .then(
-        (response) => setTransactions(response.data),
+        (response) => setCategories(response.data),
         (error) => console.error(error))
       .catch()
   }
 
 
   useEffect(() => {
-    const getCategories = () => {
-        axios.get('https://glacial-journey-00163.herokuapp.com/api/sum/' + user.email)
-          .then(
-            (response) => setCategories(response.data),
-            (error) => console.error(error))
-          .catch()
-      }
       if(isLoading===false) {getCategories();}
 }, [isLoading]);
 
@@ -43,24 +35,51 @@ const Categories = () => {
 
   return (
     <>
-    <Container>
+    <SlideIn/>
+    <Container className="my-4">
+    <h2 className="mb-4 title">Categories</h2>
+        <Row>
             {categories.map((category) => {
             return (
-
-            <Card>
-                <Card.Header>{category.category}</Card.Header>
+                <Col className="mb-3" md="4" sm="12">
+      
+                <Card >
+                <Card.Header><h3 className="center ubunto blue">{category.name}</h3></Card.Header>
                 <Card.Body>
-                    <Card.Title>Special title treatment</Card.Title>
-                    <Card.Text>
-                    <h2>${category.total_transactions}</h2>
-                    <h3>Total Transactions:{category.count}</h3>
+                    <Card.Text className="center">
+             
+                    <h4>Total Spent: ${category.value}</h4>
+                    <h5>Category Transactions: {category.count}</h5>
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
-            </Card>   
+                </Card>  
+            </Col>
+             
             )})
             }
-</Container>
+        </Row>
+        <h2 className="my-3 title">Analytics</h2>
+        <Row>
+            <Col className="mb-3" md="4" sm="12">
+                <Chart/>
+            </Col>
+            <Col className="mb-3" md="4" sm="12">
+                <Pie/>
+            </Col>
+            <Col className="mb-3" md="4" sm="12">
+                <Bar/>
+            </Col>
+        </Row>
+        <Row>
+            <Col className="mb-3" md="12" sm="12">
+                <Line/>
+            </Col>
+
+        </Row>
+
+  
+    </Container>
+
     </>
   );
 };

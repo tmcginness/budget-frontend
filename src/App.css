@@ -6,10 +6,32 @@
   text-align: center;
 }
 
+.blue{
+  color: #1f83bd;
+}
+
+.ubunto{
+font-family: 'Ubuntu', sans-serif;
+}
+
+.lato{ 
+  font-family: 'Lato', sans-serif;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.flex .btn { 
+  background-color: #1f83bd;
+}
+
 .end{
   display: flex;
   justify-content:center;
-  align-items:end
+  align-items:end;
 }
 
 .end button {

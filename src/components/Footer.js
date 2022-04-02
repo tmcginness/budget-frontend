@@ -20,8 +20,8 @@ const LogoutButton = () => {
 {
       (isAuthenticated ? 
         <Nav className="">
-  <Nav.Link href="/profile">Profile</Nav.Link>
-  <Nav.Link href="/add-transaction">Add Transaction</Nav.Link>
+  <Nav.Link href="#">Copyright: 2022</Nav.Link>
+  <Nav.Link href="#">Crafted with love by McGinness Design</Nav.Link>
 </Nav> : <div>''</div>
       )}
 

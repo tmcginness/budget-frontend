@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
-import {Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -9,7 +8,7 @@ import Edit from './EditTransaction';
 import SlideIn from '../components/SlideIn';
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isLoading } = useAuth0();
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState(false);
@@ -60,18 +59,10 @@ const Profile = () => {
 
   return (
       <>
-            {categories.map((category) => {
-    return (
-      <>
-      <h1>{category.category}</h1>
-      <h2>{category.total_transactions}</h2>
-      </>
-    )
-  })}
-      <Container>
       <SlideIn/>
-          <h2 className="title">Transactions</h2>
-          <Link className="m-2" to={'/add-transaction'}><Button>Add Transaction</Button></Link>
+      <Container>
+
+          <h2 className="title">All Transactions</h2>
           <div id="transaction">
 
           { checked ? 
@@ -79,7 +70,7 @@ const Profile = () => {
        : <Button className="m-2" onClick={toggleChecked}>Enter Edit Mode</Button>
       }
           
-          <Table striped bordered hover>
+          <Table bordered>
       <thead>
       <tr>
         <th>Date</th>
