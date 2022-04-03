@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 
 
 const NewTransaction = props => {
+    let navigate = useNavigate();
     const { user, isAuthenticated } = useAuth0();
     let emptyTransaction = { ...props.transaction }
     const [transactions, setTransactions] = useState(emptyTransaction)
@@ -18,11 +20,10 @@ const NewTransaction = props => {
     }
       
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        props.handleCreate(transactions)
+        props.handleCreate(transactions);
     }
-
 
 
     return (

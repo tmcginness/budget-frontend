@@ -13,7 +13,6 @@ import Navbar from './components/NavBar';
 import Footer from './components/Footer';
 
 const App = props => {
-
   const [transactions, setTransactions] = useState([]);
   const {user, isAuthenticated, isLoading } = useAuth0();
 
@@ -35,7 +34,6 @@ const App = props => {
       })
   }
 
-
   return (
     <>
       <Navbar/>
@@ -44,7 +42,7 @@ const App = props => {
             <Routes>
 
               <Route exact path="/" element={<Home />} />
-              <Route path="/profile" element={<Profile/>} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/categories" element={<Analytics/>} />
               <Route exact path="/add-transaction" element={<NewTransaction handleCreate={handleCreate}/>} />
               <Route exact path="/edit-transaction/:id" element={<EditTransaction transaction={transactions} handleUpdate={handleUpdate}/>} />

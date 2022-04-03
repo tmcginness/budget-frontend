@@ -13,6 +13,7 @@ const Profile = () => {
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState(false);
   const toggleChecked = () => setChecked(value => !value);
+  const [query, setQuery] = useState("")
 
   const getTransactions = () => {
     axios.get('https://glacial-journey-00163.herokuapp.com/api/owner/' + user.email)
@@ -56,13 +57,15 @@ const Profile = () => {
     return <div>Loading ...</div>;
   } 
 
-
   return (
       <>
       <SlideIn/>
       <Container>
 
           <h2 className="title">All Transactions</h2>
+          <div className="searchBar">
+                <input placeholder="Search For A Sport Or Location" onChange={event => setQuery(event.target.value)} />
+            </div>
           <div id="transaction">
 
           { checked ? 
@@ -82,7 +85,14 @@ const Profile = () => {
       </tr>
     </thead>
     
-  {transactions.map((singleTransaction) => {
+    {
+        transactions.filter(transactions => {
+            if (query === '') {
+                return transactions;
+            } else if ((transactions.vendor.toLowerCase().includes(query.toLowerCase())) || (transactions.description.toLowerCase().includes(query.toLowerCase())) || (transactions.category.toLowerCase().includes(query.toLowerCase()))) {
+                            return transactions;
+            }
+                }).map((singleTransaction) => {
     return (
       <tbody key={singleTransaction.id}>
       <tr>
