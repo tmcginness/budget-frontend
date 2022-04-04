@@ -25,7 +25,7 @@ const Edit = (props) => {
                 
                 <Form onSubmit={handleSubmit}>
                 
-                <Form.Group className="mb-3">
+                <Form.Group className="left mb-3">
                 
                     <Form.Label htmlFor='vendor'>Vendor:</Form.Label>
                     <Form.Control type='text' name='vendor' onChange={handleChange} value={transaction.vendor} />
@@ -46,7 +46,7 @@ const Edit = (props) => {
                     <Form.Control type='text' name='notes' onChange={handleChange} value={transaction.notes} />
                     <br />
 
-                    <Button type='submit'>Edit Transaction</Button>
+                    <Button className="blueBackground" type='submit'>Edit Transaction</Button>
                     </Form.Group>
                     
                 </Form>

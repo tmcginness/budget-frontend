@@ -7,16 +7,15 @@ import Login from './Login';
 import Logout from './Logout';
 
 const LogoutButton = () => {
-  const { logout } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   return (
     <>
-<Navbar className="py-4" collapseOnSelect expand="lg" bg="dark" variant="dark">
+<Navbar className="py-4 footer" collapseOnSelect expand="lg" bg="dark" variant="dark">
 <Container>
 <Navbar.Brand href="/">BUDGE<span className="logospan">TED</span></Navbar.Brand>
 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-<Navbar.Collapse id="responsive-navbar-nav">
+<Navbar.Collapse className="flex" id="responsive-navbar-nav">
 {
       (isAuthenticated ? 
         <Nav className="">
@@ -26,10 +25,6 @@ const LogoutButton = () => {
       )}
 
   <Navbar.Collapse className="justify-content-end">
-      <Navbar.Text>
-      {!isAuthenticated === true ? <Login/>:<div>Signed in as: {user.name}   <Logout/></div>}
-        
-      </Navbar.Text>
     </Navbar.Collapse>
 </Navbar.Collapse>
 </Container>

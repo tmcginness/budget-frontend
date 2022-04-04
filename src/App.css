@@ -1,10 +1,25 @@
+body{
+  background-color: rgb(241, 251, 255);
+}
+
+#root{
+  padding-bottom: 150px;
+}
+
 .App {
   text-align: center;
 }
 
+/* Center text */
 .center{
   text-align: center;
 }
+
+.bold { 
+  font-weight:600
+}
+
+/* Quick colors */
 
 .white {
   color: white;
@@ -16,18 +31,32 @@
   text-decoration: none;
 }
 
+/* footer sticks to bottom */
+
+.footer{ 
+position:fixed;
+left:0;
+bottom:0;
+right:0;
+}
+
 .blue{
   color: #1f83bd;
+}
+
+.blueBackground{
+  background: #1f83bd;
+}
+
+.blueBackground:hover{
+  background: #1f83bd;
 }
 
 .grey a{
 color: #6c757d!important;
 }
 
-.ubunto{
-font-family: 'Ubuntu', sans-serif;
-}
-
+/* styling for slide in nav */
 .offcanvas-body, .offcanvasinner{
   display: flex;
   justify-content: center;
@@ -35,23 +64,16 @@ font-family: 'Ubuntu', sans-serif;
   flex-direction: column;
 }
 
-.roundImage {
-  border-radius: 250px;
-}
+/* Fonts */
 
 .lato{ 
   font-family: 'Lato', sans-serif;
 }
 
-.flex {
-  display: flex;
-  justify-content: center;
-  
-}
+.ubunto{
+  font-family: 'Ubuntu', sans-serif;
+  }
 
-.flex .btn { 
-  background-color: #1f83bd;
-}
 
 .end{
   display: flex;
@@ -80,11 +102,17 @@ font-family: 'Ubuntu', sans-serif;
   color:#1f83bd;
 }
 
+/* Slide in nav styling for user image */
 .slideInImage{
   height: 100px;
   width: 100px;
 }
 
+.roundImage {
+  border-radius: 250px;
+}
+
+/* quick centering for any item */
 .flex{
   display: flex;
   align-items: center;
@@ -92,6 +120,11 @@ font-family: 'Ubuntu', sans-serif;
   flex-direction: column;
 }
 
+.flex .btn { 
+  background-color: #1f83bd;
+}
+
+/* Hero image styling on homepage */
 #hero{
   background: url(../src/images/budget.jpeg);
   min-height: 80vh;
@@ -103,6 +136,7 @@ font-family: 'Ubuntu', sans-serif;
   background-attachment: fixed;
 }
 
+/* Homepage text styling on hero image */
 .heroText{
   font-size:55px;
   color: white;
@@ -125,12 +159,14 @@ font-family: 'Ubuntu', sans-serif;
   color:#1f83bd;
 }
 
+/* Remove button styling from login in nav bar */
 .login{
   background:none;
   border: none;
   color: white;
 }
 
+/* heading style on each page */
 .title{
   font-size:55px;
   color: #1f83bd;
@@ -144,6 +180,7 @@ font-family: 'Ubuntu', sans-serif;
   font-family: 'Lato', sans-serif;
 }
 
+/* navbar styling */
 .navbar a, .navbar button, .navbar div{
   font-family: 'Lato', sans-serif;
 }

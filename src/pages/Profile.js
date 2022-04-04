@@ -62,18 +62,19 @@ const Profile = () => {
       <SlideIn/>
       <Container>
 
-          <h2 className="title">All Transactions</h2>
-          <div className="searchBar">
-                <input placeholder="Search For A Sport Or Location" onChange={event => setQuery(event.target.value)} />
-            </div>
-          <div id="transaction">
+          <h2 className="mb-4 title">All Transactions</h2>
+          <div className="flex searchBar">
+                <input style={{width:400}} placeholder="Search By Vendor, Description, Or Category" onChange={event => setQuery(event.target.value)} />
+            
+          
 
           { checked ? 
-            <Button className="m-2" onClick={toggleChecked}>Exit Edit Mode</Button>
-       : <Button className="m-2" onClick={toggleChecked}>Enter Edit Mode</Button>
+            <Button className="blueBackground my-4" onClick={toggleChecked}>Exit Edit Mode</Button>
+       : <Button className="blueBackground my-4" onClick={toggleChecked}>Enter Edit Mode</Button>
       }
-          
-          <Table bordered>
+      </div>
+      <div id="transaction">
+          <Table variant="light" bordered>
       <thead>
       <tr>
         <th>Date</th>
@@ -81,7 +82,7 @@ const Profile = () => {
         <th>Total</th>
         <th>Description</th>
         <th>Category</th>
-        <th colSpan={2}>Delete</th>
+        <th className="center" colSpan={2}>Delete</th>
       </tr>
     </thead>
     
@@ -90,7 +91,7 @@ const Profile = () => {
             if (query === '') {
                 return transactions;
             } else if ((transactions.vendor.toLowerCase().includes(query.toLowerCase())) || (transactions.description.toLowerCase().includes(query.toLowerCase())) || (transactions.category.toLowerCase().includes(query.toLowerCase()))) {
-                            return transactions;
+                return transactions;
             }
                 }).map((singleTransaction) => {
     return (
@@ -101,11 +102,13 @@ const Profile = () => {
         <td>${singleTransaction.price}</td>
         <td>{singleTransaction.description}</td>
         <td>{singleTransaction.category}</td>
-        <td><button onClick={handleDelete} value={singleTransaction.id}>Delete</button></td>
+        <td className="flex"><Button  onClick={handleDelete} value={singleTransaction.id}>Delete</Button></td>
       </tr>
       { checked ? 
       <tr>
-        <td className="center" colSpan={7}><Edit handleUpdate={handleUpdate} transaction={singleTransaction} /></td>
+      <td colSpan={1}></td>
+        <td className="center" colSpan={4}><Edit handleUpdate={handleUpdate} transaction={singleTransaction} /></td>
+        <td colSpan={2}></td>
       </tr> : null
       }
       </tbody>

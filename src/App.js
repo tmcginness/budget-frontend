@@ -11,6 +11,7 @@ import NewTransaction from './pages/NewTransaction';
 import EditTransaction from './pages/EditTransaction';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer';
+import { useNavigate } from "react-router-dom";
 
 const App = props => {
   const [transactions, setTransactions] = useState([]);
@@ -50,7 +51,7 @@ const App = props => {
             </Routes>
           </div>
         </BrowserRouter>
-        <Footer fixed="bottom" />
+        <Footer/>
     </>
   )
 }

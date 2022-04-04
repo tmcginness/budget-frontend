@@ -58,7 +58,7 @@ const getCategories = () => {
             )})
             }
         </Row>
-        <h2 className="my-3 title">Analytics</h2>
+        <h2 className="mb-5 mt-3 title">Analytics</h2>
         <Row>
         
             <Col className="mb-3" md="6" sm="12">
@@ -78,17 +78,6 @@ const getCategories = () => {
                 </Card.Body>
                 </Card>  
             </Col>
-        </Row>
-        <Row>
-            <Col className="mb-3" md="12" sm="12">
-            <Card >
-                <Card.Header><h3 className="center ubunto blue">Spending By Category</h3></Card.Header>
-                <Card.Body>
-                    <Line/>
-                </Card.Body>
-                </Card>  
-            </Col>
-
         </Row>
 
   

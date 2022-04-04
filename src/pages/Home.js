@@ -81,13 +81,12 @@ const Home = props => {
                 <Card.Img variant="top"  />
                 <Card.Body>
                   <Card.Title className="mb-4"><BarChartLine color='#1f83bd' className="center" size={70} /></Card.Title>
-                  <Card.Title>Budget Analytics</Card.Title>
+                  <Card.Title className="bold" >Budget Analytics</Card.Title>
                   <Card.Text className="center">
                     View charts and analytics for various categories and budgets. See exactly how your spending is trending over time, and make adjustments to suit you and your families lifestyle.
                   </Card.Text>
                 </Card.Body>
                 <Card.Body className="center end">
-                  <Button>Card Link</Button>
                 </Card.Body>
               </Card>
         </Col>
@@ -96,13 +95,12 @@ const Home = props => {
                   <Card.Img variant="top"  />
                   <Card.Body>
                     <Card.Title className="mb-4"><JournalBookmarkFill color='#1f83bd' className="center" size={70} /></Card.Title>
-                    <Card.Title>Store Transactions</Card.Title>
+                    <Card.Title className="bold">Store Transactions</Card.Title>
                     <Card.Text className="center">
                       Store every detail about each of your transactions. Date, Vendor, Cost, and any Details or Notes you'd like to add! Direct transactions from credit cards and bank accounts expected in early 2033.
                     </Card.Text>
                   </Card.Body>
                   <Card.Body className="center end">
-                  <Button>Card Link</Button>
                 </Card.Body>
                 </Card>
         </Col>
@@ -111,13 +109,12 @@ const Home = props => {
             <Card.Img variant="top"  />
                 <Card.Body>
                   <Card.Title className="mb-4"><PlusSlashMinus color='#1f83bd' className="center" size={70} /></Card.Title>
-                  <Card.Title>Credits/Debits</Card.Title>
+                  <Card.Title className="bold">Credits/Debits</Card.Title>
                   <Card.Text className="center">
-                    See where your money is going in one simple view. Build healthy spending habits to save more towards your next big purchase. Check out which categories are problem areas for your budget, and see where you're doing well! 
+                    See where your money is going in one simple view. Build healthy spending habits to save more. See which categories are problem areas for your budget, and where you're doing well! 
                   </Card.Text>
                 </Card.Body>
                 <Card.Body className="center end">
-                  <Button>Card Link</Button>
                 </Card.Body>
             </Card>
         </Col>

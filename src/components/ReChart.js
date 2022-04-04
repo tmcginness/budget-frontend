@@ -8,41 +8,29 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const data = [
     {
-      subject: 'Math',
-      A: 120,
-      B: 110,
-      fullMark: 150,
-    },
-    {
-      subject: 'Chinese',
-      A: 98,
-      B: 130,
-      fullMark: 150,
-    },
-    {
-      subject: 'English',
-      A: 86,
-      B: 130,
-      fullMark: 150,
-    },
-    {
-      subject: 'Geography',
-      A: 99,
-      B: 100,
-      fullMark: 150,
-    },
-    {
-      subject: 'Physics',
-      A: 85,
-      B: 90,
-      fullMark: 150,
-    },
-    {
-      subject: 'History',
-      A: 65,
-      B: 85,
-      fullMark: 150,
-    },
+        subject: "Appliances",
+        amount: 999.99,
+      },
+      {
+        subject: "Clothing",
+        amount: 271.89,
+      },
+      {
+        subject: "Coffee",
+        amount: 225.99,
+      },
+      {
+        subject: "Furniture",
+        amount: 1334.15,
+      },
+      {
+        subject: "Groceries",
+        amount: 215.22,
+      },
+      {
+        subject: "Food",
+        amount: 425.65,
+      },
   ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -97,7 +85,7 @@ export default function App() {
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
           <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#1f83bd" fillOpacity={0.6} />
+          <Radar name="Mike" dataKey="amount" stroke="#8884d8" fill="#1f83bd" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
   );

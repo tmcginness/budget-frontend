@@ -6,6 +6,8 @@ import Modal from 'react-bootstrap/Modal';
 import Container from 'react-bootstrap/Container';
 import { useAuth0 } from "@auth0/auth0-react";
 import {Link } from "react-router-dom";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 const NewTransaction = props => {
@@ -34,14 +36,13 @@ const NewTransaction = props => {
               </p>
             </Modal.Body>
             <Modal.Footer>
-            <Button onClick={props.onHide}>Add Another Transaction</Button>
-              <Button > <Link to="/profile" className="white">Back To Transactions</Link>
+            <Button className="blueBackground" onClick={props.onHide}>Add Another Transaction</Button>
+              <Button className="blueBackground" > <Link to="/profile" className="white">Back To Transactions</Link>
                 </Button>
             </Modal.Footer>
           </Modal>
         );
       }
-    
 
     const handleChange = (e) => {
         setTransactions({ ...transactions, [e.target.name]: e.target.value })
@@ -65,35 +66,44 @@ const NewTransaction = props => {
         animation={false}
         onHide={() => setModalShow(false)}
       />
-
+<Row>
+        
+        <Col className="mb-3" md="3" sm="12">
+        </Col>
+        <Col className="mb-3" md="6" sm="12">
         <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
 
-                    <Form.Label className="ubunto blue" htmlFor='vendor'>Vendor:</Form.Label>
+                    <Form.Label className="bold ubunto blue" htmlFor='vendor'>Vendor:</Form.Label>
                     <Form.Control required type='text' name='vendor' onChange={handleChange} value={transactions.vendor} />
                     <br />
-                    <Form.Label className="ubunto blue" htmlFor='date'>Date:</Form.Label>
+                    <Form.Label className="bold ubunto blue" htmlFor='date'>Date:</Form.Label>
                     <Form.Control required type='date' name='date' onChange={handleChange} value={transactions.date} />
                     <br />
-                    <Form.Label className="ubunto blue" htmlFor='description'>Description:</Form.Label>
+                    <Form.Label className="bold ubunto blue" htmlFor='description'>Description:</Form.Label>
                     <Form.Control required type='description' name='description' onChange={handleChange} value={transactions.description} />
                     <br />
-                    <Form.Label className="ubunto blue" htmlFor='price'>Price:</Form.Label>
+                    <Form.Label className="bold ubunto blue" htmlFor='price'>Price:</Form.Label>
                     <Form.Control required type='number' name='price' onChange={handleChange} value={transactions.price} />
                     <br />
-                    <Form.Label className="ubunto blue" htmlFor='category'>Category:</Form.Label>
+                    <Form.Label className="bold ubunto blue" htmlFor='category'>Category:</Form.Label>
                     <Form.Control required type='text' name='category' onChange={handleChange} value={transactions.category} />
                     <br />
-                    <Form.Label className="ubunto blue" htmlFor='notes'>Notes:</Form.Label>
+                    <Form.Label className="bold ubunto blue" htmlFor='notes'>Notes:</Form.Label>
                     <Form.Control required type='text' name='notes' onChange={handleChange} value={transactions.notes} />
                     <br />
-                    <Form.Label className="ubunto blue" htmlFor='owner'>Owner:</Form.Label>
-                    <Form.Control required placeholder={!isAuthenticated === true ? '': user.email} type='text' name='owner' onChange={handleChange} value={transactions.owner} />
+                    <Form.Label className="bold ubunto blue" htmlFor='owner'>Your Email:</Form.Label>
+                    <Form.Control 
+                    id="email"
+                    required placeholder={!isAuthenticated === true ? '': user.email} type='text' name='owner' onChange={handleChange} value={transactions.owner} />
                     <br />
                     <div className="flex"><Button type='submit'>Add Transaction</Button></div>
                     
                 </Form.Group>
             </Form>
+            </Col>
+            <Col className="mb-3" md="3" sm="12"></Col>
+            </Row>
         </Container>
         </>
     )
