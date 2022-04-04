@@ -57,7 +57,7 @@ const data = [
 
 export default function App() {
   return (
-    <ResponsiveContainer width='100%' height="100%">
+    <ResponsiveContainer width='100%' height={300}>
     <BarChart
       width={400}
       height='100%'

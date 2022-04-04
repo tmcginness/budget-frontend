@@ -56,7 +56,7 @@ const renderCustomizedLabel = ({
   outerRadius,
   percent,
   index
-}: any) => {
+}) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -92,7 +92,7 @@ export default function App() {
     } 
   return (
       
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height={300}>
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />

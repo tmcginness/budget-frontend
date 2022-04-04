@@ -8,7 +8,7 @@ const data = [
   { name: "Group D", value: 200 }
 ];
 
-const renderActiveShape = (props: any) => {
+const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
     cx,
@@ -91,7 +91,7 @@ export default function App() {
   );
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height={300}>
     <PieChart>
       <Pie
         activeIndex={activeIndex}
