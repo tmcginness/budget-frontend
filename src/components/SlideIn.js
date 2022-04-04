@@ -2,14 +2,13 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+import Card from 'react-bootstrap/Card';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import FormControl from 'react-bootstrap/FormControl';
+import Image from '../images/budgetedlogoonly.png'
+import { Link } from 'react-router-dom';
 
-const LogoutButton = () => {
+
+const SlideIn = () => {
   const { logout } = useAuth0();
   const { user, isAuthenticated, isLoading } = useAuth0();
 
@@ -25,38 +24,51 @@ const LogoutButton = () => {
       placement="start"
     >
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title id="offcanvasNavbarLabel">Your Info</Offcanvas.Title>
+        <Offcanvas.Title id="offcanvasNavbarLabel"><h3>Your Info</h3></Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
       {
       (isAuthenticated ? 
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
+      <div className="offcanvasinner">
+        <img className="roundImage" width="150px" height="150px"src={user.picture} alt={user.name} />
+        <h2 className="center">{user.name}</h2>
+        <p className="center">{user.email}</p>
       </div> : <h1>Sign In Please</h1>
       )}
-        <Nav className="justify-content-end flex-grow-1 pe-3">
-          <Nav.Link href="#action1">Home</Nav.Link>
-          <Nav.Link href="#action2">Link</Nav.Link>
-          <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
-            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action5">
-              Something else here
-            </NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-        <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button variant="outline-success">Search</Button>
-        </Form>
+                <Card className="grey flex">
+                <Card.Img
+                className=" slideInImage"
+                variant="top" src={Image} />
+                <Card.Body>
+                <Card.Text className="text-muted">
+                    Personalized Resources Just For You! 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://www.nerdwallet.com/" target="_blank" rel="noreferrer"> Nerd Wallet</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://mint.intuit.com/" target="_blank" rel="noreferrer">Mint</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://www.creditkarma.com/" target="_blank" rel="noreferrer"> Credit Karma</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://www.dupagecu.com/" target="_blank" rel="noreferrer">DuPage Credit Union</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://www.moneygeek.com/credit-cards/" target="_blank" rel="noreferrer">MoneyGeek</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://www.lendingtree.com/credit-cards/" target="_blank" rel="noreferrer">Lending Tree</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://app.anchorprotocol.com/earn" target="_blank" rel="noreferrer">Anchor Earn</a> 
+                </Card.Text>
+                <Card.Text className="center text-muted">
+                <a href="https://www.experian.com/" target="_blank" rel="noreferrer" >Experian</a> 
+                </Card.Text>
+                </Card.Body>
+            </Card>
       </Offcanvas.Body>
     </Navbar.Offcanvas>
   </Container>
@@ -65,4 +77,4 @@ const LogoutButton = () => {
   );
 };
 
-export default LogoutButton;
+export default SlideIn;

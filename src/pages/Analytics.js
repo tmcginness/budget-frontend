@@ -60,19 +60,41 @@ const getCategories = () => {
         </Row>
         <h2 className="my-3 title">Analytics</h2>
         <Row>
+        
             <Col className="mb-3" md="4" sm="12">
-                <Chart/>
+            <Card >
+                <Card.Header><h3 className="center ubunto blue">Spending By Category</h3></Card.Header>
+                <Card.Body>
+                    <Chart/>
+                </Card.Body>
+                </Card>  
+                
             </Col>
             <Col className="mb-3" md="4" sm="12">
-                <Pie/>
+            <Card >
+                <Card.Header><h3 className="center ubunto blue">Spending By Category</h3></Card.Header>
+                <Card.Body>
+                    <Pie/>
+                </Card.Body>
+                </Card>  
             </Col>
             <Col className="mb-3" md="4" sm="12">
-                <Bar/>
+            <Card >
+                <Card.Header><h3 className="center ubunto blue">Spending By Category</h3></Card.Header>
+                <Card.Body>
+                    <Bar/>
+                </Card.Body>
+                </Card>  
             </Col>
         </Row>
         <Row>
             <Col className="mb-3" md="12" sm="12">
-                <Line/>
+            <Card >
+                <Card.Header><h3 className="center ubunto blue">Spending By Category</h3></Card.Header>
+                <Card.Body>
+                    <Line/>
+                </Card.Body>
+                </Card>  
             </Col>
 
         </Row>

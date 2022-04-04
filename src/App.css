@@ -6,12 +6,37 @@
   text-align: center;
 }
 
+.white {
+  color: white;
+  text-decoration: none;
+}
+
+.white:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .blue{
   color: #1f83bd;
 }
 
+.grey a{
+color: #6c757d!important;
+}
+
 .ubunto{
 font-family: 'Ubuntu', sans-serif;
+}
+
+.offcanvas-body, .offcanvasinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.roundImage {
+  border-radius: 250px;
 }
 
 .lato{ 
@@ -53,6 +78,18 @@ font-family: 'Ubuntu', sans-serif;
 
 .App-link {
   color:#1f83bd;
+}
+
+.slideInImage{
+  height: 100px;
+  width: 100px;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #hero{

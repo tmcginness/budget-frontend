@@ -1,6 +1,7 @@
 import React from "react";
 import {
   LineChart,
+  ResponsiveContainer,
   Line,
   XAxis,
   YAxis,
@@ -56,9 +57,10 @@ const data = [
 
 export default function App() {
   return (
+    <ResponsiveContainer width='100%' height={350}>
     <LineChart
-      width={1400}
-      height={300}
+      width='100%'
+      height={400}
       data={data}
       margin={{
         top: 5,
@@ -80,5 +82,6 @@ export default function App() {
       />
       <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
     </LineChart>
+    </ResponsiveContainer>
   );
 }
